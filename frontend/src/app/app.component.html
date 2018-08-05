@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h2>
+    Welcome to {{ title }}!
+  </h2>
+
+  <div style="text-align:center">
+
+  </div>
+  <h5>Here are the puzzles we have so far:</h5>
+  <ul>
+    <li *ngFor="let puzzle of puzzleList">
+      {{puzzle.question}}
+    </li>
+  </ul>
+
+  <router-outlet></router-outlet>
