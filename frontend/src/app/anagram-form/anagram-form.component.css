@@ -1,0 +1,22 @@
+.anagram-form {
+  display: block;
+  align-content: center;
+  text-align: center;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url('/assets/search-icon.svg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+input[type=text]:focus {
+  border: 3px solid #673AB7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

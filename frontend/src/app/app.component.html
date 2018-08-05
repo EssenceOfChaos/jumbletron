@@ -1,17 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h2>
-    Welcome to {{ title }}!
-  </h2>
+<div class="wrapper">
+  <header>
+    <mat-toolbar color="primary">
+      <h1>
+        <span>Jumbo Jumbles</span>
+      </h1>
+    </mat-toolbar>
+  </header>
 
-  <div style="text-align:center">
+  <article>
+    <h2>Welcome to the {{ title }}!</h2>
+    <mat-tab-group *ngFor="let puzzle of puzzleList">
+      <mat-tab label="Question">
+        <ng-template matTabContent>
+          {{puzzle.question}}
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Words">
+        <ng-template matTabContent>
+          {{puzzle.words}}
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Answer">
+        <ng-template matTabContent>
+          {{puzzle.answer}}
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Created on">
+        <ng-template matTabContent>
+          {{puzzle.created_at | date}}
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
 
-  </div>
-  <h5>Here are the puzzles we have so far:</h5>
-  <ul>
-    <li *ngFor="let puzzle of puzzleList">
-      {{puzzle.question}}
-    </li>
-  </ul>
+  </article>
 
-  <router-outlet></router-outlet>
+  <aside>
+    <h3 class="aside-header">Unscrambler</h3>
+    <mat-divider></mat-divider>
+    <app-anagram-form></app-anagram-form>
+  </aside>
+
+  <footer>
+    <h3>Footer</h3>
+  </footer>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>

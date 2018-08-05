@@ -9,7 +9,7 @@ import { Puzzle } from './puzzles/puzzle.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Jumbo Jumbles';
+  title = 'Jumble';
   puzzleList: Puzzle[];
   puzzles;
 
