@@ -1,7 +1,7 @@
 import sys
 from collections import Counter
 
-DICTIONARY_FILENAME = '/assets/words.txt'
+DICTIONARY_FILENAME = './assets/words.txt'
 
 def read_words(filename):
     """Read in words from filename, ensure all lower case."""
