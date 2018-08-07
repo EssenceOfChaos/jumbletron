@@ -1,5 +1,7 @@
 To start application...
 
-start the angular development server by `cd frontend` and `ng s`
+navigate to the angular client-facing application with `cd frontend`,
+install the dependencies with `yarn install` or `npm install`,
+then start the development server with `ng s`.
 
-start flask and connect to the db by `cd backend` and running `./bootstrap.sh &`
+start flask and connect to the db with `cd backend` and running `./bootstrap.sh &`

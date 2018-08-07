@@ -1,15 +1,17 @@
 from .entities.entity import Session, engine, Base
 from .entities.puzzle import Puzzle, PuzzleSchema
+import anagrams
 # Flask
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
+from pyspark import SparkContext, SparkConf
 
 # creating the Flask application
 app = Flask(__name__)
 CORS(app)
 # generate database schema
 Base.metadata.create_all(engine)
-##exposing Flask endpoints
+## exposing Flask endpoints
 @app.route('/puzzles')
 def get_puzzles():
     # fetching from the database
@@ -23,6 +25,15 @@ def get_puzzles():
     # serializing as JSON
     session.close()
     return jsonify(puzzles.data)
+
+@app.route('/anagram/<word>')
+def get_anagrams(word=None):
+    if word is None:
+        word = request.args.get('word')
+        if name:
+            anagrams.anagram(word)
+    else:
+        abort(404)
 
 
 @app.route('/puzzles', methods=['POST'])
@@ -53,7 +64,7 @@ def add_puzzle():
 
 # create and persist dummy exam
 # if len(puzzles) == 0:
- 
+
 #     python_puzzle = Puzzle("Example Question", ["word1", "two", "three"], "Example Answer", "script")
 #     session.add(python_puzzle)
 #     session.commit()

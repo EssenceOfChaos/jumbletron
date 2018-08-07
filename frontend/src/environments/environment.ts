@@ -4,9 +4,11 @@
 
 export const environment = {
   production: false,
-  dataMuseUrl: 'https://api.datamuse.com/words?ml=',
+  dataMuseUrl: 'https://api.datamuse.com/words?sp=',
+  // for use with Wolfram Alpha API
+  WAappId: '&appid=8QE4G8-VA7L5A8W5G',
+  WAbaseUrl: "https://api.wolframalpha.com/v1/simple?i=anagrams+"
 };
-
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

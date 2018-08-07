@@ -7,11 +7,21 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable()
 export class WordsService {
   wordsApi = environment.dataMuseUrl;
+  WAappId = environment.WAappId;
+  WAbaseUrl = environment.WAbaseUrl;
+
 
   constructor(private http: HttpClient) {}
-
+// neither function below works
   search_word(term) {
-    return this.http.get(this.wordsApi + term).pipe(
+    return this.http.get(this.wordsApi + '*' + term + '*').pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  search_anagram(letters) {
+    return this.http.get(this.WAbaseUrl + letters + this.WAappId).pipe(
       retry(3),
       catchError(this.handleError)
     );

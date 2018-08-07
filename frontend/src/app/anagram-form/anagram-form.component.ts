@@ -1,20 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Input, Output} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { WordsService } from './words.service';
-// import { fromEvent } from 'rxjs';
-// import { ajax } from 'rxjs/ajax';
-// import { filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-// const searchBox = document.getElementById('search-box');
-// const typeahead = fromEvent(searchBox, 'input').pipe(
-//   map((e: KeyboardEvent) => e.target.value),
-//   filter(text => text.length > 2),
-//   debounceTime(10),
-//   distinctUntilChanged(),
-//   switchMap(() => ajax('/api/endpoint'))
-// );
 
 @Component({
   selector: 'app-anagram-form',
@@ -30,6 +19,7 @@ export class AnagramFormComponent implements OnInit {
   constructor(private wordsService: WordsService) {}
 
   ngOnInit() {
+    this.userInput.valueChanges.subscribe(result => console.log(result));
     this.filteredOptions = this.userInput.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -39,5 +29,12 @@ export class AnagramFormComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+  getWords(userInputValue) {
+    this.wordsService.search_word(userInputValue).subscribe(result => console.log(result));
+  }
+
+  getAnagrams(letters){
+    this.wordsService.search_anagram(letters).subscribe(anagrams => console.log(anagrams));
   }
 }

@@ -2,7 +2,7 @@
   <header>
     <mat-toolbar color="primary">
       <h1>
-        <span>Jumbo Jumbles</span>
+        <a class="no-decor" routerLink="/">Jumbo Jumbles</a>
       </h1>
     </mat-toolbar>
   </header>
@@ -36,17 +36,17 @@
 
   <aside>
     <h3 class="aside-header">Unscrambler</h3>
-    <mat-divider></mat-divider>
+
     <app-anagram-form></app-anagram-form>
   </aside>
+  <br />
+
+  <router-outlet></router-outlet>
+
+  <br />
 
   <footer>
     <h3>Footer</h3>
+    <mat-divider></mat-divider>
   </footer>
 </div>
-
-
-
-
-
-<router-outlet></router-outlet>

@@ -9,12 +9,7 @@ font-family: 'Monoton', cursive; */
   font-family: 'Monoton', cursive;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Comfortaa', cursive;
 }
 
@@ -28,13 +23,11 @@ header {
 
 article {
   grid-area: content;
-  background-color: lightgoldenrodyellow;
   padding: 20px;
 }
 
 aside {
   grid-area: sidebar;
-  background-color: lightblue;
 }
 
 footer {
