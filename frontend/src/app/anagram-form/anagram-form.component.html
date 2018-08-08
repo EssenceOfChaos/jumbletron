@@ -1,6 +1,7 @@
 <form class="anagram-form">
   <mat-form-field>
-    <input id="search-box" matInput type="text" placeholder="input jumbled word" aria-label="word" [formControl]="userInput" [matAutocomplete]="auto">
+    <input id="search-box" matInput type="text" placeholder="input jumbled word" aria-label="word" [formControl]="userInput"
+      [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
         {{option}}
@@ -8,7 +9,5 @@
     </mat-autocomplete>
   </mat-form-field>
   <br>
-
   <button mat-raised-button color="accent" routerLink="/anagram-solution/{{userInput.value}}">Submit</button>
-
 </form>

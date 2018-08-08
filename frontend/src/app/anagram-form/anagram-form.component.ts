@@ -1,9 +1,8 @@
-import { Component, OnInit,  Input, Output} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { WordsService } from './words.service';
-
 
 @Component({
   selector: 'app-anagram-form',
@@ -12,7 +11,7 @@ import { WordsService } from './words.service';
 })
 export class AnagramFormComponent implements OnInit {
   userInput = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = [];
   filteredOptions: Observable<string[]>;
   unscrambledWords: Observable<any>;
 
@@ -34,7 +33,7 @@ export class AnagramFormComponent implements OnInit {
     this.wordsService.search_word(userInputValue).subscribe(result => console.log(result));
   }
 
-  getAnagrams(letters){
+  getAnagrams(letters) {
     this.wordsService.search_anagram(letters).subscribe(anagrams => console.log(anagrams));
   }
 }

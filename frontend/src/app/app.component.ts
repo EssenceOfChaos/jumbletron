@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PuzzlessApiService } from './puzzles/puzzle-api.service';
-
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { Puzzle } from './puzzles/puzzle.model';
 
 @Component({
@@ -14,6 +14,16 @@ export class AppComponent implements OnInit, OnDestroy {
   puzzles;
 
   constructor(private puzzlesApi: PuzzlessApiService) {}
+  jumbleForm = new FormGroup({
+    firstWord: new FormControl(''),
+    firstIndices: new FormControl(''),
+    secondWord: new FormControl(''),
+    secondIndices: new FormControl(''),
+    thirdWord: new FormControl(''),
+    thirdIndices: new FormControl(''),
+    fourthWord: new FormControl(''),
+    fourthIndices: new FormControl(''),
+  });
 
   ngOnInit() {
     this.puzzles = this.puzzlesApi.getPuzzles().subscribe(res => {

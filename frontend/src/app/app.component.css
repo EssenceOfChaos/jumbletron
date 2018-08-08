@@ -11,3 +11,12 @@
 .no-decor:hover {
   text-shadow: 2px 2px 4px #000000;
 }
+
+.jumbleForm {
+  max-width: 500px;
+}
+
+.jumble-form {
+  border: 4px dashed #673AB7;
+  max-width: 500px;
+}

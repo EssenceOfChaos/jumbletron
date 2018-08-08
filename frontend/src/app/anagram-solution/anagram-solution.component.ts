@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './anagram-solution.component.html',
   styleUrls: ['./anagram-solution.component.css'],
 })
-export class AnagramSolutionComponent {
-  
-}
+export class AnagramSolutionComponent {}
