@@ -2,7 +2,7 @@
 # from pyspark.streaming import StreamingContext
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("jumbles").getOrCreate()
-df = spark.read.csv('walmart_stock.csv',header=True,inferSchema=True)
+
 
 
 
