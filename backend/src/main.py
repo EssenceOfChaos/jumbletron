@@ -1,6 +1,6 @@
 from .entities.entity import Session, engine, Base
 from .entities.puzzle import Puzzle, PuzzleSchema
-import anagrams
+
 # Flask
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
@@ -62,7 +62,6 @@ def add_puzzle():
 # check for existing data
 # puzzles = session.query(Puzzle).all()
 
-# create and persist dummy exam
 # if len(puzzles) == 0:
 
 #     python_puzzle = Puzzle("Example Question", ["word1", "two", "three"], "Example Answer", "script")
@@ -74,6 +73,6 @@ def add_puzzle():
     # puzzles = session.query(Puzzle).all()
 
 # show existing puzzles
-# print('### Puzzles:')
+# print('Puzzles: ')
 # for puzzle in puzzles:
 #     print(f'({puzzle.id}) {puzzle.question} - {puzzle.answer}')
